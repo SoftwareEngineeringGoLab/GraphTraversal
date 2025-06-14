@@ -1,15 +1,18 @@
 package org.example.graphTravelers;
 
-
-import edu.uci.ics.jung.graph.SparseMultigraph;
-
+import org.example.adapter.GraphAdapter;
 import java.util.*;
 
 public class BfsGraphTraverser implements Traverser {
-    private final SparseMultigraph<Integer, String> graph;
+    private GraphAdapter<Integer, String> graphAdapter;
 
-    public BfsGraphTraverser(SparseMultigraph<Integer, String> graph) {
-        this.graph = graph;
+    public BfsGraphTraverser(GraphAdapter<Integer, String> graphAdapter) {
+        this.graphAdapter = graphAdapter;
+    }
+
+    @Override
+    public void setGraphAdapter(GraphAdapter<Integer, String> adapter) {
+        this.graphAdapter = adapter;
     }
 
     @Override
@@ -26,7 +29,7 @@ public class BfsGraphTraverser implements Traverser {
             result.add(vertex);
 
             // Get neighbors and sort them for deterministic output
-            List<Integer> neighbors = new ArrayList<>(graph.getNeighbors(vertex));
+            List<Integer> neighbors = new ArrayList<>(graphAdapter.getNeighbors(vertex));
             neighbors.sort(Comparator.naturalOrder());
 
             for (Integer neighbor : neighbors) {
