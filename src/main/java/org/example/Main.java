@@ -1,6 +1,9 @@
 package org.example;
 
 import edu.uci.ics.jung.graph.SparseMultigraph;
+import org.example.adapter.GraphAdapter;
+import org.example.adapter.JGraphTGraphAdapter;
+import org.example.adapter.JungGraphAdapter;
 import org.example.graphTravelers.BfsGraphTraverser;
 import org.example.graphTravelers.DfsGraphTraverser;
 import org.example.graphTravelers.Traverser;
@@ -14,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello there");
         // Create a graph
-        SparseMultigraph<Integer,String> graph = new SparseMultigraph<>();
+        GraphAdapter<Integer,String> graph = new JGraphTGraphAdapter<>();
 
         // Add vertices (using Integer nodes)
         graph.addVertex(1);
