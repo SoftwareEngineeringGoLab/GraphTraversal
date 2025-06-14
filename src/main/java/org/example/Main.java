@@ -15,9 +15,8 @@ import java.util.List;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello there");
         // Create a graph
-        GraphAdapter<Integer,String> graph = new JGraphTGraphAdapter<>();
+        GraphAdapter<Integer,String> graph = new JungGraphAdapter<>();
 
         // Add vertices (using Integer nodes)
         graph.addVertex(1);
